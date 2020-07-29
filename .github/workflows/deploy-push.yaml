@@ -24,8 +24,8 @@ jobs:
       - name: Deploy
         uses: andeplane/deploy-function-python@master
         with:
-          cdf_project: wei-dev
+          cdf_project: datastudio
           cdf_base_url: https://greenfield.cognitedata.com
           cdf_deployment_credentials: ${{ secrets.COGNITE_DEPLOY_API_KEY }}
-          cdf_function_credentials: ${{ secrets.COGNITE_FUNCTION_API_KEY }}
+          cdf_function_credentials: ${{ secrets.COGNITE_DEPLOY_API_KEY }}
           function_path: ${{ matrix.functions }}
