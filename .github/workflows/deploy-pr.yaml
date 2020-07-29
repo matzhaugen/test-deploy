@@ -22,14 +22,14 @@ jobs:
       - name: Deploy
         uses: andeplane/deploy-function-python@master
         with:
-          cdf_project: wei-dev
+          cdf_project: datastudio
           cdf_base_url: https://greenfield.cognitedata.com
           cdf_deployment_credentials: ${{ secrets.COGNITE_DEPLOY_API_KEY }}
-          cdf_function_credentials: ${{ secrets.COGNITE_FUNCTION_API_KEY }}
+          cdf_function_credentials: ${{ secrets.COGNITE_DEPLOY_API_KEY }}
           function_path: ${{ matrix.functions }}
       - name: Run integration tests
         env:
-          COGNITE_API_KEY: ${{ secrets.COGNITE_FUNCTION_API_KEY }}
+          COGNITE_API_KEY: ${{ secrets.COGNITE_DEPLOY_API_KEY }}
           COGNITE_PROJECT: wei-dev
           COGNITE_BASE_URL: https://greenfield.cognitedata.com
           COGNITE_CLIENT_NAME: cognite-function-deploy
